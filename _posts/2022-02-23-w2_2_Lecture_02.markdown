@@ -1,0 +1,312 @@
+﻿---
+
+layout: post
+title: "Lecture 2: Inductive Reasoning, the Logic of Data Science."
+author: "Mario H. Gonzalez-Sauri"
+date: "2022-02-22"
+mermaid: true
+
+---
+
+<!--  FORMAT: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet -->
+
+# Introduction
+
+In lecture one, we had an overview of the set of skills that we need to acquire as Data scientists. But, in addition to these skills, we also need to set our analytical skills and our reason to navigate complex problems. As Data scientists we are regularly facing complexity and our weapons are our set of skills and also a well-ordered use of our reason. Reasoning is a cognitive process that takes sets of information, evidence and principles to revise or generate conclusions [(Johnson-Laird & Byrne, 1993)](https://www.sciencedirect.com/science/article/pii/S0959475206001198#bib10).  Gathering the skills without a properly ordered mind may be like a powerful construction tool in the hands of an untrained worker.
+
+For our training we have to distinguish between two ways of reasoning, one is inductive and the second one is deductive [(Klauer, 2001)](https://www.sciencedirect.com/science/article/pii/S0959475206001198#bib14). According to Klauer, **deductive reasoning** is a process that starts from a set of general top-level premises to reach a logically valid lower-level conclusion. The conclusions from deductive reasoning are implicit because if the first general statement is true, the other claims are then valid. In contrast, [Rippenger (2013)](https://books.google.nl/books/about/Introduction_to_the_Science_of_Mental_He.html?id=VNThnAEACAAJ&redir_esc=y), defines **inductive reasoning** as form of reasoning in which the certainty about conclusion does not necessarilly follow from the premises but on the amount of evidence supporting the premises. 
+
+You may be wondering how does this be related to Data Science? Well, most of the work in statistics and science uses inductive reasoning. Because inductive reasoning starts with lower-level premises or observations from data to reach a general conclusion or an overall rule. In Data Science, Econometrics and Statistics rely more on inductive reasoning because we collect information to support or discard ideas, hyphothesis and theories to reach conclusions about the object of analysis. Inductive reasoning is our default way of reasoning because the data typically has the following characteristics:
+
+- Does not contain full information about a population, but typically our data is only a sample.
+- It is not evident what is the relationship between variables $$f(x)=y$$.
+
+
+I'm almost sure that inductive reasoning is not new for you. Perhaps you are only becoming aware that you use this kind of reasoning more often than you may have thought. Because inductive reasoning involves finding regularities, differences, patterns and relations among variables (or objects) to arrive at a more general conclusion [(Neubert and Binko, 1992)](https://www.sciencedirect.com/science/article/pii/S0959475206001198#bib21). We perform this activity all the time in our daily life when we make decisions with little information under uncertainty. But also, inductive reasoning is the natural way of deriving scientific principles [(Polya, 1967)](https://www.sciencedirect.com/science/article/pii/S0959475206001198#bib23). Indeed, we use inductive reasoning more often than you may be aware. 
+
+> The work of [Feene, Heit and Evan (2020)](https://www.cambridge.org/nl/academic/subjects/psychology/cognition/inductive-reasoning-experimental-developmental-and-computational-approaches?format=PB&isbn=9780521672443), lists four main reasons why inductive reasoning is important.
+> > - Inductive reasoning corresponds to probabilistic, uncertain, approximate reasoning, and as such, it corresponds to everyday reasoning;
+> > - Induction itself is a way of reasoning uncertain events and thus is used by children and adults; 
+> > - Is central to several cognitive activities, including categorization, similarity judgment, probability judgment, and decision making.
+> > - Induction is traditionally contrasted with deduction; It is sometimes said that induction goes from the specific to the general, and deduction goes from the general to the specific.
+> > - For example, after observing that many individual dogs bark, one might induce a more general belief that all dogs bark.
+> > -  Alternately, having a general belief that all dogs bark, one might deduce that some particular dog will bark.
+
+
+
+Inductive reasoning is the default in Data science and statistics because follows the scientific method. We start acquiring a set of observations or data for testing and analyzing to derive higher-level principles or predictions. To understand better the process of inductive reasoning go through the following frameworks.
+
+
+# A framework of Inductive Reasoning
+
+The research of [Klauer, (1988, ](https://dialnet.unirioja.es/servlet/articulo?codigo=5171693) [1992, ](https://www.tandfonline.com/doi/abs/10.1080/0937445920030205), [1999)](http://publicatio.bibl.u-szeged.hu/11927/1/CsBeno_Teaching_1999.pdf#page=132), defines inductive reasoning as *the systematic and analytic comparison of objects aiming at discovering similarities and/or differences between attributes or relations*. According to his work, most inductive problems can be broken down to six classes: generalization, discrimination, cross-classification, recognizing relationships, differentiating relationships and system construction). Relations, as in the kind of bonds between objects, if you are familiar with statistics, we may think about the relationship between an $$X$$ variable on $$Y$$ dependent variable. For instance, this may be the impact of $$CO_2$$ emmissions on temperature. But, it may be also the relationship between two individuals; friendship, partnership or kindship. The second class of construct refers to the attritutes of the object, for instance, if a geometric figure is a triangle, or if a fruit is an apple, or if a person has certain nationality. To simplify our understanding of inductive reasoning, the framework of Klauer was simplified by [Christou and Papageorgiou (2007)](https://www.sciencedirect.com/science/article/pii/S0959475206001198), who proposed to approach the process of inductive reasoning distinguishing between three main countructs: *similarity, dissimilarity and integration*.
+
+
+
+
+
+
+To understand better some specific ways in which we use inductive reasoning, let's navigate some specific examples using the framework of  for teaching inductive reasoning:
+
+<br>
+
+| Construct        |     | Level 1: attributes                                                                                                  | Level 2: relations                                                                                     |
+|------------------|-----|----------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+|                  |     |                                                                                                                      |                                                                                                        |
+| 1. Similarity    | 1.1 | Finds an attribute that is common among numbers or shapes.                                                           | Recognizes the relations that exist between pairs of figures or numbers and tests it on the next pair. |
+|                  | 1.2 | Selects a number or shape which belongs to a group of numbers or shapes that share a common attribute.               | Completes series                                                                                       |
+|                  | 1.3 | Compares attributes of numbers or shapes by matching them to other numbers or shapes that follow the same attribute. | Solves analogy problems                                                                                |
+|                  |     |                                                                                                                      |                                                                                                        |
+| 2. Dissimilarity | 2.1 | Finds differences among numbers or shapes with respect to attributes                                                 | Reorders numbers of a set in order to define a correct series.                                         |
+|                  | 2.2 |                                                                                                                      | Excludes one number so that the remaining numbers constitute the same pattern of relation.             |
+|                  |     |                                                                                                                      |                                                                                                        |
+| 3. Integration   | 3.1 | Considers two or more attributes simultaneously                                                                      | Considers two or more relations in which similarity or dissimilarity are to be verified                |
+|                  |     |                                                                                                                      |                                                                                                        |
+
+
+
+## Example 1.1 Similarity of attribute between numbers.
+
+
+
+<!--  The code was taken from: view-source:https://cdn.datacamp.com/dcl-react/standalone-example.html -->
+
+<html>
+    <center>
+      <head>
+  <meta charset="utf-8" />
+  <title>DataCamp Light | Standalone example</title>
+  <link rel='shortcut icon' type='image/x-icon' href='https://www.datacamp.com/assets/favicon.ico'/>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+  </style>
+
+<script async src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<body>
+<div class="exercise">
+    <div class="title">
+      <h2>Similarity of attributes between series.</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="r" data-height="350">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+        
+        # 1.1 Sequence 
+        a <- c(1L, 5L, 11L)
+
+        # 1.2 Sequence
+        b <- c(8L, 9L, 12L)
+
+        # 1.3 Sequence
+        c <- c(9L, 3L, 12L)
+
+        # 1.4 Sequence
+        d <- seq(from=1L, to=3L, by=1L)
+
+        # 1.5 All sequence contain 3 elements.
+
+        print("All sequences contain 3 elements.")
+        lapply(list(a,b,c,d), length)
+
+        # 1.6 All sequence contain 3 elements are integers.
+
+        print("All sequences contain integers.")
+        lapply(list(a,b,c,d), is.integer)
+ 
+       </code>
+      <code data-type="sct">
+         success_msg(&quot;1.5. Indeed, The four vectors(sequences) have 3 elements .&quot;)
+         success_msg(&quot;1.6 Indeed, The four vectors(sequences) contain integer numbers .&quot;)
+      </code>
+    </div>
+  </div>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'60c84adf8f0efa94',m:'6264a6c7b7098b4664f0029861e33345e755ecfb-1609798256-1800-AZ5SiMx9+8i1DUaATF29pUU2DgD2hGBahMTLzCp0u9zdneaWsgKHvJYIb63Nx6Kzrq22t/E1NgZ80qHhsGzmOUnf6ustaizE64ZpsRpRyOr+rEzbRTMYNIUp1ONMTGQCO+iTTwZJ9vTD6t2y4viZZeePccInWm+gDseSQ66FC7lD',s:[0x2d0011f590,0x51d56ce6c4],}})();</script></body>
+   </center>
+</html>
+
+The lines of code from the example above (**1-10**), present four different examples of series. Using the construct of similarity between attribute we can derive some conclusions about the series. If we press the `Submit` or `Run`, the line **16** of the code `lapply(list(a,b,c,d), length)`, proofs our conclusion by induction about the series, a, b, c and d; namely, that the lenght of the vectors is three. Then, the line **21**, `lapply(list(a,b,c,d), is.integer)`, shows that the four numerical series are compose of integers. We can then conclude by induction that all the 4 series contain 3 integer numbers.
+
+
+
+## Example 1.2 Similarity of relations between numbers.
+
+
+
+<!--  The code was taken from: view-source:https://cdn.datacamp.com/dcl-react/standalone-example.html -->
+
+<html>
+    <center>
+      <head>
+  <meta charset="utf-8" />
+  <title>DataCamp Light | Standalone example</title>
+  <link rel='shortcut icon' type='image/x-icon' href='https://www.datacamp.com/assets/favicon.ico'/>
+  <style>
+    .exercise {
+      margin: 50px;
+    }
+  </style>
+
+<script async src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<body>
+<div class="exercise">
+    <div class="title">
+      <h2>Similarity of attributes between series.</h2>
+    </div>
+    <div data-datacamp-exercise data-lang="r" data-height="350">
+      <code data-type="pre-exercise-code"># no pec</code>
+      <code data-type="sample-code">
+        
+       # 1.1 Sequence 
+        a <- c(0L, 1L)
+
+        # 1.2 Sequence
+        b <- c(a, sum(a))
+        b
+
+        # 1.3 Sequence
+        c <- c(b, sum(b))
+        c
+
+        # 1.4 Write the corresponding number in the series.
+        d <- c(c, ) 
+
+       </code>
+        <code data-type="solution">
+        
+      # 1.1 Sequence 
+        a <- c(0L, 1L)
+
+        # 1.2 Sequence
+        b <- c(a, sum(a))
+        b
+
+        # 1.3 Sequence
+        c <- c(b, sum(b))
+        c
+
+        # 1.4 Write the corresponding number in the series.
+        d <- c(c, 5) 
+
+      </code>
+      <code data-type="sct">
+         test_output_contains(&quot;6&quot;, incorrect_msg = &quot;The last number of the series is `2 + 3`.&quot;)
+         success_msg(&quot;1.6 Indeed, The serie is a Fibonacci sequence.&quot;)
+      </code>
+    </div>
+  </div>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'60c84adf8f0efa94',m:'6264a6c7b7098b4664f0029861e33345e755ecfb-1609798256-1800-AZ5SiMx9+8i1DUaATF29pUU2DgD2hGBahMTLzCp0u9zdneaWsgKHvJYIb63Nx6Kzrq22t/E1NgZ80qHhsGzmOUnf6ustaizE64ZpsRpRyOr+rEzbRTMYNIUp1ONMTGQCO+iTTwZJ9vTD6t2y4viZZeePccInWm+gDseSQ66FC7lD',s:[0x2d0011f590,0x51d56ce6c4],}})();</script></body>
+   </center>
+</html>
+
+For this second example, we use the similarity of relations between the numerical series. The lines (**1-2**), show the numerical series of `a` containing `0` and `1`. Interestingly, the line **5**, shows that the series `b`, contains the elements of `a` plus the summation of themselves.
+
+Then the line **9**, is a series composed again by the elements of `b`. Ok, let us inspect the series more closely to derive the answer of the last element of the series on line **13**.
+
+<center>
+<br>
+$$a=[0, 1]$$
+<br>
+$$b=[0, 1, 2]$$
+<br>
+$$c=[0, 1, 2, 3]$$
+<br>
+$$d=[0, 1, 2, 3, ?]$$
+</center>
+
+The sum of the last two elements of each series derives the last number of the new series. You guess right, by induction we can tell that these series are part of the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number), and the solution of line 13 is **5**.
+
+
+## 2.1 Differences: Compare attributes by matching circles of the same color.
+![Difference in color attribute](https://github.com/Wario84/idsc_mgs/raw/master/assets/imgs/circles.svg?raw=true)
+
+This example also uses induction, we observe firstly an array of circles. Then, we observe that they are spread diagonally, following a pattern of colors. Each line has a set of circles filled with the same color.
+
+
+
+## 2.2 Excludes one figure so that the remaining ones constitute the same pattern of relationships.
+![Difference of one element](https://github.com/Wario84/idsc_mgs/raw/master/assets/imgs/difference.svg?raw=true)
+
+In the above example, we can tell that we have a similar diagonal array of geometric figures. But there is one element, that does not follow the pattern. Yes, the red circle on the top right is out of place, because is the only red circle in the picture. 
+
+
+## 3.1 Considers two or more relations in which similarity or dissimilarity are to be verified.
+![Is the relationship positive or negative?](https://github.com/Wario84/idsc_mgs/raw/master/assets/imgs/attitude_data.svg?raw=true)
+
+Each square in the plot above shows the relationship between two variables. Similarly, we can elaborate by using our observation and inductive reasoning, that each column or a row assesses the relationship with one variable on all other variables. Moreover, when we inspect the squares horizontally the variable in the middle is placed in the vertical axis. Conversely, when we inspect the boxes vertically, the variable flips to the horizontal axis.
+<!-- arrows : https://cloford.com/resources/charcodes/utf-8_arrows.htm -->
+What is more important is what is the relation between each pair of variables. In each box, we observer a red line, that depicts a pattern. We observe, four sets of patterns. The first shows a positive relation between two variables, when the red line is 45 degrees <span style="color:red">&#8599;</span>. Converselly, a negative relation between two variables will be depicted by <span style="color:red">&#8600;</span>. No relation between two variables is depicted by an horizontal line  <span style="color:red">&#8594;</span>. A fourth pattern, is what is called, a non-linear patter, that looks similar to this arrow  <span style="color:red">&#8605;</span>.
+
+
+# Inductive reasoning in Statistics
+
+We should distinguish between inductive reasoning as a creative process of the mind, and inductive inference, a more rigid mathematical or statistical procedure [(Hassad, (2020)](https://www.iase-web.org/ojs/SERJ/article/view/133/41). This distinction is important, because, as Hassad, pointed out, even if Data Science and Machine learning methods use well-defined induction processes they do not reduce the need for human reasoning. In other words, they depend on the mind of the Data Scientist that will deploy and interpret these novel methodologies. A excelent example of a well-defined induction processes is statistical hypothesis testing. Hypothesis testing is a pillar of statistical inference and science because the outcome of the test asserts something about the relation between two or more variables. 
+
+For instance, imagine you are estimating the effect of `education` $$x$$ , on `income` $$y$$. Assuming this relationship is linear, the univariate regression model will take the form of $$income = \beta* education + u$$. Here, the main interest for causal analysis is the inference of the effect $$\beta$$ of `education` on `income` via an hypothesis test. The most frequent hypothesis test that you can find in regression tables tests the `NULL` $$H_0: \beta=0$$ hypothesis agains the alternative $$H_a: \beta \neq 0$$. Obviosly, these are mutually exclusive statements; where rejecting the `NULL` implies that there is statatisticall significant relation between `education` on `income`. To shed some light on these difference, lets take the seminal paper by [Fisher, (1955)](https://www.jstor.org/stable/2983785), where he describes the use of inductive reasoning for inference in hypothesis testing, as follows:
+
+> >
+> The framing of the hypothesis in terms of which the data are to be interpreted. This hypothesis must fulfill several requirements: 
+> (i) it must be in accordance with the facts of nature as so far known; 
+> (ii) it must specify the frequency distribution of all observational facts included in the data, so that the data as a whole may be taken as a typical sample;
+> (iii) it must incorporate as parameters all constants of nature which it is intended to estimate, in addition possibly to special, or ad hoc, parameters;
+> (iv) it must not be contradicted, in any way judged relevant, by the data in hand. 
+
+However, he distinguishes well, the use of inductive reasoning as a formal part and requisite of statistical inference, but he acknoledge the use of inductive reasoning as something that goes beyond the formal inductive procedure as follows:
+>>
+> It is by no means obvious that different persons should not put forward different successful hypotheses, among which the data can supply little or no discrimination. The 
+> hypothesis is sometimes called a model, but I should suggest that the word model should only be used for aspects of the hypothesis between which the data cannot discriminate. 
+> As an act of construction the hypothesis is not altogether impersonal, for the scientist's personal capacity for theorizing comes into it; moreover, the criteria by which it is approved require a certain honesty, or integrity, in their application.
+
+
+# Inductive reasoning in databases and data mining.
+
+To finalize this second lecture let's give an example of the use of inductive reasoning when we consult databases and perform queries. We perform queries on databases in our daily life when we Google terms or when searching in any sort of database. The work of [Kakemotom, 1996](https://link.springer.com/chapter/10.1007/978-1-4471-1486-4_18) put forward this examples that illustrate the use of inductive reasoning in databases:
+
+
+a. Suppose you are searching from a database of computers. The information is arranged in a relational table that contains, the `model` of the computer, the `ram` memory and the `price`. You aim to distinguish (difference) computer models by price, and you use the following `SQL` query:
+
+```
+SELECT * FROM relation-name
+WHERE PRICE> 1000;
+
+```
+
+The output of this query yield the following results:
+
+| **MODEL**                   | **RAM** | **PRICE** |
+|:---------------------------:|:-------:|:---------:|
+|                             |         |           |
+| Lenovo Chromebook S330      | 4 GB    | 205.00    |
+| ASUS Laptop L510            | 4 GB    | 268.00    |
+| ...                         | ...     | ...       |
+| ASUS Vivobook L410          | 4 GB    | 350.00    |
+|                             |         |           |
+| Dell Inspiron 3000          | 8 GB    | 419.00    |
+| ...                         | ...     | ...       |
+| Laptop Acer Aspire 5        | 8 GB    | 499.00    |
+|                             |         |           |
+| Lenovo Flex 5               | 16 GB   | 600.00    |
+| Acer Nitro 5 AN515-55-53E5  | 16 GB   | 785.00    |
+| ...                         | ...     | ...       |
+| HP Pavilion de 15.6       | 16 GB   | 779.00    |
+| ...                         | ...     | ...       |
+
+
+Using inductive reasoning, we can distinguish the differences between groups of laptops.
+
+1. The common attribute of those examples are `MODEL`, `RAM`, `PRICE` .
+
+2. We apply a similarity strategy to refine the results of the query. 
+
+3. We observe that we have three groups of laptops:
+
+    a.  when the $$200<$$`PRICE`$$<=350$$, the `RAM` memory is not more than `4 GB`. 
+
+    b.  If the laptop has `8 GB` of `RAM` then the price range is between $$350<$$`PRICE`$$<=500$$.
+
+    c.  But if the laptop has `16 GB` the price then is then higher than `PRICE`$$>600$$,
+
+4. We conclude from the process of inductive reasoning that the`RAM` memory is an important determinant of the price.
