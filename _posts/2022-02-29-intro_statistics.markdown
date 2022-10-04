@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Lecture 3: Introduction to Descriptive Statistics using R."
+title: "Introduction to Descriptive Statistics using R."
 author: "Mario H. Gonzalez-Sauri"
 date: "2022-02-22"
 mermaid: true
