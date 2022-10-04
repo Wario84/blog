@@ -1,11 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets\\bibs",
-    "\\assets\\data",
-    "\\_posts",
-    "\\_sass\\minima"
+    "\\_posts"
   ],
-  "SelectedNode": "\\_posts\\2022-10-04-intro_pandas.md",
+  "SelectedNode": "\\_posts\\2022-02-22-intro_R.md",
   "PreviewInSolutionExplorer": false
 }
