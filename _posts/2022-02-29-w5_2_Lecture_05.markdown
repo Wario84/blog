@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "Lecture 5: Introduction to Algorithms"
+title: "Introduction to Algorithms"
 author: "Mario H. Gonzalez-Sauri"
 date: "2022-03-27"
 mermaid: true
