@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\assets",
+    "\\assets\\imgs",
+    "\\assets\\imgs\\10-07-2022-net_ml",
+    "\\_posts"
   ],
+  "SelectedNode": "\\assets\\imgs\\10-07-2022-net_ml",
   "PreviewInSolutionExplorer": false
 }
