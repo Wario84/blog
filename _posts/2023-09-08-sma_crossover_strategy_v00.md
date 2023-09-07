@@ -26,12 +26,12 @@ potential of a similar approach in the Forex market.
 ## Simple Moving Average(SMA) Basics
 
 The simple moving average (SMA) is a method of forecasting that predicts
-the next value in the series based on the mean of a set $q$ previous
+the next value in the series based on the mean of a set $$q$$ previous
 values (lags). Obviously, the model will perform well if the series has
 a tendency to revert to a mean value (stationary) well represented by
 the number of selected previous or lag values in the model. In other
 words, once we accounted for the correct number of lag values, the
-errors $\epsilon$ in the model should be independent and identically
+errors $$\epsilon$$ in the model should be independent and identically
 distributed (random).
 
 $$Y_t = \bar{Y}(Y_{t-1} + ... Y_{t-q}) + \epsilon$$
@@ -155,7 +155,7 @@ connection to the API, a contract with a correct symbol for the stock, a
 duration and a candle size. In this example, I am creating a connection
 that I call `tws`, then I am creating a contract with the
 `twsContract()` with the correct symbol `USD.SEK` and finally I am
-setting a duration of “5 D” (5 days) with candles of “30 sec”.
+setting a duration of `5 D` (5 days) with candles of `30 sec` (seconds).
 
 ``` r
 library('IBrokers')
