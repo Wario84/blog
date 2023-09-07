@@ -5,6 +5,7 @@ title: "Backtesting a Crossover Moving Average Strategy Algorithm in the Forex M
 author: "Mario H. Gonzalez-Sauri"
 date: "2023-09-07"
 keywords: finance, trading, forex
+
 ---
 
 
@@ -33,7 +34,7 @@ words, once we accounted for the correct number of lag values, the
 errors $\epsilon$ in the model should be independent and identically
 distributed (random).
 
-$Y_t = \bar{Y}(Y_{t-1} + ... Y_{t-q}) + \epsilon$
+$$Y_t = \bar{Y}(Y_{t-1} + ... Y_{t-q}) + \epsilon$$
 
 ## SMA Crossover Strategy
 
