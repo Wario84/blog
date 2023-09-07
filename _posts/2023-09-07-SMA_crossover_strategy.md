@@ -2,7 +2,7 @@
 layout: post
 title: "Backtesting a Crossover Moving Average Strategy Algorithm in the Forex Market."
 author: "Mario H. Gonzalez-Sauri"
-date: "2023-02-15"
+date: "2023-09-07"
 keywords: finance, trading, forex
 ---
 
