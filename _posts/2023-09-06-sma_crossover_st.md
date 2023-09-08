@@ -178,7 +178,7 @@ The setting that I am using on my Trader Workstation are the following:
 
 ![](https://github.com/Wario84/blog/raw/main/assets/imgs/00_set_up_API.gif?raw=true)<!-- -->
 
-## Optimizing the SMA Crossover bands
+## Optimizing the SMA Crossover bands (Short-run Backtesting)
 
 A key requirement for the success of the algorithm is to identify which
 set of bands (long and short-run) are better to predict changes in the
@@ -195,11 +195,15 @@ and the accumulation of capital depends on this interactive process.
 The range I selected for the SMA in the short run is from `5:100` and
 `10:300`for the long run. In each iteration the algorithm will select
 one pair of bands, fit the corresponding models, calculate benchmarks
-and estimate the capital at the end of the period.
+and estimate the capital at the end of the period. Effectively algorithm
+tests `27550` combinations of short and long-run bands and saves
+measurements of performance for latter analysis. The optimization of the
+bands was conducted in a data set that runs over 5 days in candles of 30
+seconds, a data set of `94624`.
 
 Similar to the study by Gurrib (2016), I assume that:
 
-1.  The frequency of data is set initially to candles of 30 seconds.
+1.  The frequency of data is set to candles of 30 seconds.
 2.  The effect of discounts, taxes and commissions are ignored.
 3.  All orders occur immediately at market prices.  
 4.  Limit and stop order options are not allowed at this stage.
@@ -376,16 +380,14 @@ In terms of performance (capital return) the pair that won is the
 `8, 300` followed closely by the `5, 300` for the short and long-run
 respectively.
 
-## Long Run Analysis
+## Long Run Backtesting
 
-The optimization of the bands was conducted in a data set that runs over
-5 days in candles of 30 seconds, a data set of `94624`. However, to have
-a better idea of the behavior of the algorithm, I decided to run the
-algorithm using 6 months of data in candles 30 seconds with a total of
-`2961360` data points. Testing the algorithm over six months will give
-us a better perspective of how well the SMA bands capture the long and
-short run trends in the data and a better approximation of the financial
-return.
+To have a better idea of the behavior of the algorithm, I decided to run
+the algorithm using 6 months of data in candles 30 seconds with a total
+of `2961360` data points. Testing the algorithm over six months will
+give us a better perspective of how well the SMA bands capture the long
+and short run trends in the data and a better approximation of the
+financial return.
 
 ### Improvements
 
@@ -422,24 +424,40 @@ trades all the time. The buying rule was transformed as follows:
            data$sma_short[i] < data$sma_long[i] && pos > 0 && buyPrice > as.numeric(data$USD.SEK.Close[i])) 
 ```
 
-Unfortunately this change didn't report a greater performance than the
+Unfortunately this change didn’t report a greater performance than the
 regular unconstrained moving average. The issue is that the series
 eventually reach local maximum or minimum values. For instance, if the
-algorithm buys at a local minimum point in the series this condition
-will never be fulfilled `buyPrice > as.numeric(data$USD.SEK.Close[i])`.
-Because the algorithm bought at a local minimum there is no change the
-future values will be smaller and hence this resulted in lower
-performance. In a nutshell, it seems that in order to take advance of
-the volatility of the series and make higher profit it is necessary to
-lose some trades as long that on the averages we are winning more often.
-This is the reported performance of the first run:
+algorithm buys at a local minimum point in the series the selling
+condition will never be fulfilled
+`buyPrice > as.numeric(data$USD.SEK.Close[i])`. The algorithm’s
+performance suffered because it purchased an asset at a local minimum
+price, and since then, the price has consistently risen. This situation
+makes it unlikely for future prices to be lower, leading to lower
+overall performance. In a nutshell, it seems that in order to take
+advance of the volatility of the series and make higher profit it is
+necessary to lose some trades as long as on the averages we are winning
+more often. This is the reported performance of the first run:
 
 |           |   n |   m |  capital | net_profit | grossProfit | grossLoss | buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades | mae_short | mae_long | rmse_short | rmse_long | USD.SEK.Close | USD.SEK.Close.1 |
 |:----------|----:|----:|---------:|-----------:|------------:|----------:|-------------:|--------------:|---------------:|-----------------:|----------------:|----------:|---------:|-----------:|----------:|--------------:|----------------:|
 | sma_short |   8 | 300 | 2086.763 |     86.763 |      86.763 |         0 |           56 |            55 |          0.001 |               55 |               0 |     0.001 |     0.01 |      1.987 |    84.648 |             1 |               1 |
 
+SMA constrained Crossover performance
+
 The total profit over the six months was only 86.763 USD, a return of
-investment of only 4.33 %.
+investment of only 4.33 %. However as expected, the total number of
+trades is low and more importantly there are no trades on loss.
+
+``` r
+trades <- perf_df[, 7:11]
+kable(round(trades, digits = 3), caption = "Composition of the trades")
+```
+
+|           | buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades |
+|:----------|-------------:|--------------:|---------------:|-----------------:|----------------:|
+| sma_short |           56 |            55 |          0.001 |               55 |               0 |
+
+Composition of the trades
 
 ### Second run of the algorithm
 
@@ -527,17 +545,38 @@ for (i in 2:nrow(data)){      # Check for a cross
 }
 ```
 
-The reported performance over the same period of data (6 months) was the
-following:
+The reported performance over the same period of data (6 months) is
+presented on the table bellow. The net profit of the unconstrained
+simple moving average over six months was 317.278 with an initial
+investment of 2000 USD. A total of 15.86 % return of investment, not bad
+at all, considering that we only tested half a year.
 
-|           |   n |   m |  capital | net_profit | grossProfit | grossLoss | buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades | mae_short | mae_long | rmse_short | rmse_long | USD.SEK.Close | USD.SEK.Close.1 |
-|:----------|----:|----:|---------:|-----------:|------------:|----------:|-------------:|--------------:|---------------:|-----------------:|----------------:|----------:|---------:|-----------:|----------:|--------------:|----------------:|
-| sma_short |   8 | 300 | 2317.278 |    317.278 |    1700.261 |  1382.983 |         2025 |          2025 |          0.001 |             1612 |             413 |     0.001 |     0.01 |      1.987 |    84.648 |             1 |               1 |
+|           |   n |   m |  capital | net_profit | grossProfit | grossLoss |
+|:----------|----:|----:|---------:|-----------:|------------:|----------:|
+| sma_short |   8 | 300 | 2317.278 |    317.278 |    1700.261 |  1382.983 |
 
-The net profit of the unconstrained simple moving average over six
-months was 317.278 with an initial investment of 2000 USD. A total of
-15.86 % return of investment in half a year, not bad at all. The
-distribution of the Return of Investment (ROI) of each trade is the
+SMA unconstrained Crossover performance
+
+Remarkably, the unconstrained variant of the algorithm, absent the
+condition `buyPrice > as.numeric(data$USD.SEK.Close[i])`, exhibited a
+loss in approximately 20% of its trades. This is quite high, and it is
+an area of opportunity for further implementations of the algorithm. I
+will start by testing a less restrictive condition of selling that
+allows to sell on loss but only around certain margin, perhaps the
+standard deviation of long-run SMA.
+
+``` r
+trades <- perf_df[, 7:11]
+kable(round(trades, digits = 3), caption = "Composition of the trades")
+```
+
+|           | buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades |
+|:----------|-------------:|--------------:|---------------:|-----------------:|----------------:|
+| sma_short |         2025 |          2025 |          0.001 |             1612 |             413 |
+
+Composition of the trades
+
+The distribution of the Return of Investment (ROI) of each trade is the
 following:
 
 |   Min. | 1st Qu. | Median |  Mean | 3rd Qu. | Max. |   sd |
@@ -546,20 +585,31 @@ following:
 
 ROI Summary Statistics
 
-![](01092023_SMA_crossover_strategy_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](https://github.com/Wario84/blog/raw/main/assets/imgs/sma_roi_histogram.png?raw=true)<!-- -->
 
 ## Final remarks and areas of improvement.
 
-The first observation is that the algorithm reported a high level of
-gross loss (1382 USD) in comparison to the gross gain (1780). I believe
-this can be improved by adding additional rules to the algorithm to
-allow for some resistance bands that may reduce the loss when the
-algorithm is not able to detect correctly market opportunities. The
-second observation is that I need to incorporate more realistic
-estimations of the commissions for each transaction that will reduce the
-performance of the algorithm. Thirdly, I think would be useful to
-optimize and test the performance the algorithm in the equity market
-specially on stocks with higher returns and upward trends. Finally, the
-next stage would be to implement the algorithm using live market data
-with the function `reqMktData` and to test it with the paper trading
-account and assess the live performance.
+The SMA crossover algorithm proved to be successful, achieving a total
+return on investment of 15.86% over six months with 30-second candles.
+However, it’s important to note that this performance heavily depends on
+specific parameter values (bands), candle intervals, and the chosen
+stock. In our rigorous testing, we explored a staggering 27,550
+combinations of short and long-run bands over five days to identify the
+winning pair.
+
+While the algorithm showed promise, there are areas for improvement.
+First, we observed a relatively high gross loss (1382 USD) compared to
+the gross gain (1780 USD), resulting in approximately 20% of losses.
+Enhancing the algorithm with additional rules, such as introducing
+resistance bands, may help mitigate losses during market uncertainties.
+Secondly, more realistic estimations of transaction commissions need to
+be incorporated to provide a more accurate representation of algorithm
+performance. It’s worth noting that Interactive Brokers limits regular
+trading accounts to one-minute candles, which may impact trading
+strategies. Looking ahead, optimizing and testing the algorithm’s
+performance in the equity market, particularly with stocks displaying
+higher returns and upward trends, could yield even better results.
+Finally, the next phase involves implementing the algorithm using live
+market data through the `reqMktData` function and testing it in a paper
+trading account to assess its real-time performance.
+
