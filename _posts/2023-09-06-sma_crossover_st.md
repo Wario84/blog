@@ -438,9 +438,10 @@ advance of the volatility of the series and make higher profit it is
 necessary to lose some trades as long as on the averages we are winning
 more often. This is the reported performance of the first run:
 
-|           |   n |   m |  capital | net_profit | grossProfit | grossLoss | buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades | mae_short | mae_long | rmse_short | rmse_long | USD.SEK.Close | USD.SEK.Close.1 |
-|:----------|----:|----:|---------:|-----------:|------------:|----------:|-------------:|--------------:|---------------:|-----------------:|----------------:|----------:|---------:|-----------:|----------:|--------------:|----------------:|
-| sma_short |   8 | 300 | 2086.763 |     86.763 |      86.763 |         0 |           56 |            55 |          0.001 |               55 |               0 |     0.001 |     0.01 |      1.987 |    84.648 |             1 |               1 |
+
+|   n |   m |  capital | net_profit | grossProfit | grossLoss |
+|----:|----:|---------:|-----------:|------------:|----------:|
+|   8 | 300 | 2086.763 |     86.763 |      86.763 |         0 |
 
 SMA constrained Crossover performance
 
@@ -448,16 +449,9 @@ The total profit over the six months was only 86.763 USD, a return of
 investment of only 4.33 %. However as expected, the total number of
 trades is low and more importantly there are no trades on loss.
 
-``` r
-trades <- perf_df[, 7:11]
-kable(round(trades, digits = 3), caption = "Composition of the trades")
-```
-
-|           | buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades |
-|:----------|-------------:|--------------:|---------------:|-----------------:|----------------:|
-| sma_short |           56 |            55 |          0.001 |               55 |               0 |
-
-Composition of the trades
+| buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades |
+|-------------:|--------------:|---------------:|-----------------:|----------------:|
+|           56 |            55 |          0.001 |               55 |               0 |
 
 ### Second run of the algorithm
 
@@ -551,9 +545,9 @@ simple moving average over six months was 317.278 with an initial
 investment of 2000 USD. A total of 15.86 % return of investment, not bad
 at all, considering that we only tested half a year.
 
-|           |   n |   m |  capital | net_profit | grossProfit | grossLoss |
-|:----------|----:|----:|---------:|-----------:|------------:|----------:|
-| sma_short |   8 | 300 | 2317.278 |    317.278 |    1700.261 |  1382.983 |
+|   n |   m |  capital | net_profit | grossProfit | grossLoss |
+|----:|----:|---------:|-----------:|------------:|----------:|
+|   8 | 300 | 2317.278 |    317.278 |    1700.261 |  1382.983 |
 
 SMA unconstrained Crossover performance
 
@@ -565,14 +559,9 @@ will start by testing a less restrictive condition of selling that
 allows to sell on loss but only around certain margin, perhaps the
 standard deviation of long-run SMA.
 
-``` r
-trades <- perf_df[, 7:11]
-kable(round(trades, digits = 3), caption = "Composition of the trades")
-```
-
-|           | buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades |
-|:----------|-------------:|--------------:|---------------:|-----------------:|----------------:|
-| sma_short |         2025 |          2025 |          0.001 |             1612 |             413 |
+| buynumTrades | sellnumTrades | trades_per_min | numWinningTrades | numLosingTrades |
+|-------------:|--------------:|---------------:|-----------------:|----------------:|
+|         2025 |          2025 |          0.001 |             1612 |             413 |
 
 Composition of the trades
 
