@@ -24,7 +24,7 @@ publication’s Tittle, Abstract or Keywords the word “Machine Learning”.
 Later I filter subsetting only the highly cited publications in the
 field.
 
-## Introduction
+## Introduction2
 
 This post aims to explore the effectiveness of a straightforward Forex
 market investment algorithm. Amidst numerous algorithmic possibilities,
