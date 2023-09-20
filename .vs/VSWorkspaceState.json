@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\assets",
-    "\\assets\\imgs",
-    "\\assets\\imgs\\10-07-2022-net_ml",
-    "\\_posts"
+    "\\_posts",
+    "\\_sass"
   ],
-  "SelectedNode": "\\_posts\\2023-02-15-cpu_benchmark_plotly_dash.md",
   "PreviewInSolutionExplorer": false
 }
