@@ -1276,6 +1276,14 @@ hexadecimal values, or by RGB values. You can explore a wide range of
 colors and conversions between these systems on this
 [website](http://cloford.com/resources/colours/500col.htm).
 
+For this tutorial a palette of high contrasting colors that I am defining in the following vector:
+
+``` r
+colors37 = c("#466791","#60bf37","#953ada","#4fbe6c","#ce49d3","#a7b43d","#5a51dc","#d49f36","#552095","#507f2d","#db37aa","#84b67c","#a06fda","#df462a","#5b83db","#c76c2d","#4f49a3","#82702d","#dd6bbb","#334c22","#d83979","#55baad","#dc4555","#62aad3","#8c3025","#417d61","#862977","#bba672","#403367","#da8a6d","#a79cd4","#71482c","#c689d0","#6b2940","#d593a7","#895c8b","#bd5975")
+```
+
+And in this snipped of code where you can see clearly the contrast in the palette:
+
 ``` r
 # Example of hexadecimal format
 # print(head(colors37))
@@ -1564,6 +1572,28 @@ summary(m1)
     ## F-statistic:  10.5 on 6 and 23 DF,  p-value: 1.24e-05
 
 # Section 2: An introduction to Network Analysis using Igraph
+
+## Install packages
+
+Before you start this section I recommend that you install the following packages:
+
+-   `igraph`: A package for network analysis and visualization (most important).
+-   `tnet`: A package for analyzing weighted, two-mode, and longitudinal networks.
+-   `data.table`: A package for data manipulation and analysis.
+-   `qgraph`: A package for creating and analyzing graphical models (e.g., network models) that we use only to improve the visualization of networks.
+-   `knitr`: A package for dynamic report generation in R.
+
+
+``` r
+
+# packages
+pks <- c('knitr', 'igraph', 'tnet', 'data.table', 'qgraph')
+ 
+#Load and install packages
+to.install <- pks[!unlist(lapply(pks, require, character.only = T ))]
+if(length(to.install)!=0){install.packages(to.install, dependencies = T)}
+
+```
 
 ## Generate Graphs
 
