@@ -313,7 +313,7 @@ Stay tuned as we explore more about matrices, data frames, functions,
 and lists in the world of R programming. These concepts will further
 enhance your ability to work with data effectively in R.
 
-## Matrices
+### Matrices
 
 Matrices are 2-dimensional arrays of data consisting of a single atomic
 object. They are essential for conducting statistical analyses and
@@ -394,7 +394,7 @@ C
     ## [2,]    4    5    6
     ## [3,]    7    8    9
 
-## Basic Linear Algebra
+### Basic Linear Algebra
 
 We can perform basic linear algebra operations on matrices:
 
@@ -514,7 +514,7 @@ all.equal(as.vector(C %*% e[, 1]), v[1] * e[, 1])
 
     ## [1] TRUE
 
-## Data Frames
+### Data Frames
 
 Data frames have a more heterogeneous structure compared to matrices.
 While vectors and matrices belong to a specific `typeof` object, data
@@ -613,7 +613,7 @@ py
     ##       3 1 2 2 0
     ##       4 0 0 0 1
 
-## Functions
+### Functions
 
 Functions are invaluable when we need to perform the same operation(s)
 multiple times. Let’s create a simple function to calculate the degree
@@ -645,7 +645,7 @@ s.degree(A)
     ## D      1
     ## E      1
 
-## Lists
+### Lists
 
 Lists are the most flexible data structure in R, allowing us to store
 multiple objects of different classes. A data frame is a list with a
@@ -688,7 +688,7 @@ str(l)
     ##  $ list      :List of 1
     ##   ..$ : int [1:3] 1 2 3
 
-## Indexing Objects
+### Indexing Objects
 
 Subsetting in R can be done using nominal, numeric, or logical indexing.
 Data frames and lists use the special operator `$` for subsetting.
@@ -863,7 +863,7 @@ l$matrix[, 4]
     ## A B C D E 
     ## 1 1 0 0 0
 
-## Control Flow
+### Control Flow
 
 Control flow structures like `if`, `else`, and `ifelse` are essential
 for making decisions and executing code conditionally in R.
@@ -1012,7 +1012,7 @@ is.sym(B)
 
     ## [1] "Symmetric"
 
-## Loops
+### Loops
 
 Loops are used for repetitive tasks, but it’s essential to use them
 judiciously as they can be inefficient. Here, we cover while and for
@@ -1052,7 +1052,7 @@ for (i in 1:nrow(A)) {
     ## [1] "C"
     ## [1] "A"
 
-## Apply Family of Functions
+### Apply Family of Functions
 
 The `apply` function in R takes an array as its first argument and
 applies a function to all the elements of the array. Let’s explore some
@@ -1131,7 +1131,7 @@ In this example, we create a matrix of random characters and count how
 many times each character appears in each column using the apply
 function.
 
-## lapply Function
+### lapply Function
 
 The `lapply` function in R takes a list as its first argument and
 applies a function to all the elements of the list. It offers advantages
