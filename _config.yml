@@ -22,7 +22,7 @@ title: "Mario GS: Data Science Blog"
 email: mglezsauri@gmail.com
 
 description: >- # this means to ignore newlines until "baseurl:"
-  This website covers the material for the course Applied Data Science.
+  "Mario GS: Data Science Blog."
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://wario84.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Intermind
