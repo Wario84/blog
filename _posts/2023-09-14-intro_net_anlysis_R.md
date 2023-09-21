@@ -68,242 +68,38 @@ function creation, and general operations. You can find a comprehensive
 list of operators in the [R
 documentation](https://cran.r-project.org/doc/manuals/r-devel/R-lang.html#Operators).
 
-<table class="center">
-<caption>
+|      | Logical Operators                                             |
+|:-----|:--------------------------------------------------------------|
+| \-   | Minus, can be unary or binary                                 |
+| \+   | Plus, can be unary or binary                                  |
+| !    | Logical not (Negation)                                        |
+| ~    | Tilde (used in model formulae)                                |
+| ?    | Help                                                          |
+| :    | Sequence, binary (in model formulae: interaction)             |
+| \*   | Multiplication, binary                                        |
+| /    | Division, binary                                              |
+| ^    | Exponentiation, binary                                        |
+| %x%  | Special binary operators, x can be replaced by any valid name |
+| %%   | Modulus, binary                                               |
+| %/%  | Integer divide, binary                                        |
+| %\*% | Matrix product, binary                                        |
+| %o%  | Outer product, binary                                         |
+| %x%  | Kronecker product, binary                                     |
+| %in% | Matching operator, binary (in model formulae: nesting)        |
+| \<   | Less than, binary                                             |
+| \>   | Greater than, binary                                          |
+| ==   | Equal to, binary                                              |
+| \>=  | Greater than or equal to, binary                              |
+| \<=  | Less than or equal to, binary                                 |
+| &    | And, binary, vectorized                                       |
+| &&   | And, binary, not vectorized                                   |
+| \|   | Or, binary, vectorized                                        |
+| \|\| | Or, binary, not vectorized                                    |
+| \<-  | Left assignment, binary                                       |
+| -\>  | Right assignment, binary                                      |
+| \$   | List subset, binary                                           |
+
 R Operators
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-Logical Operators
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-
-- </td>
-  <td style="text-align:left;">
-  Minus, can be unary or binary
-  </td>
-  </tr>
-  <tr>
-  <td style="text-align:left;">
-
-  - </td>
-    <td style="text-align:left;">
-    Plus, can be unary or binary
-    </td>
-    </tr>
-    <tr>
-    <td style="text-align:left;">
-    !
-    </td>
-    <td style="text-align:left;">
-    Logical not (Negation)
-    </td>
-    </tr>
-    <tr>
-    <td style="text-align:left;">
-    ~
-    </td>
-    <td style="text-align:left;">
-    Tilde (used in model formulae)
-    </td>
-    </tr>
-    <tr>
-    <td style="text-align:left;">
-    ?
-    </td>
-    <td style="text-align:left;">
-    Help
-    </td>
-    </tr>
-    <tr>
-    <td style="text-align:left;">
-    :
-    </td>
-    <td style="text-align:left;">
-    Sequence, binary (in model formulae: interaction)
-    </td>
-    </tr>
-    <tr>
-    <td style="text-align:left;">
-
-    - </td>
-      <td style="text-align:left;">
-      Multiplication, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      /
-      </td>
-      <td style="text-align:left;">
-      Division, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      ^
-      </td>
-      <td style="text-align:left;">
-      Exponentiation, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      %x%
-      </td>
-      <td style="text-align:left;">
-      Special binary operators, x can be replaced by any valid name
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      %%
-      </td>
-      <td style="text-align:left;">
-      Modulus, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      %/%
-      </td>
-      <td style="text-align:left;">
-      Integer divide, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      %\*%
-      </td>
-      <td style="text-align:left;">
-      Matrix product, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      %o%
-      </td>
-      <td style="text-align:left;">
-      Outer product, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      %x%
-      </td>
-      <td style="text-align:left;">
-      Kronecker product, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      %in%
-      </td>
-      <td style="text-align:left;">
-      Matching operator, binary (in model formulae: nesting)
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      \<
-      </td>
-      <td style="text-align:left;">
-      Less than, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      \>
-      </td>
-      <td style="text-align:left;">
-      Greater than, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      ==
-      </td>
-      <td style="text-align:left;">
-      Equal to, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      \>=
-      </td>
-      <td style="text-align:left;">
-      Greater than or equal to, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      \<=
-      </td>
-      <td style="text-align:left;">
-      Less than or equal to, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      &
-      </td>
-      <td style="text-align:left;">
-      And, binary, vectorized
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      &&
-      </td>
-      <td style="text-align:left;">
-      And, binary, not vectorized
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      \|\|
-      </td>
-      <td style="text-align:left;">
-      Or, binary, not vectorized
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      \<-
-      </td>
-      <td style="text-align:left;">
-      Left assignment, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      -\>
-      </td>
-      <td style="text-align:left;">
-      Right assignment, binary
-      </td>
-      </tr>
-      <tr>
-      <td style="text-align:left;">
-      \$
-      </td>
-      <td style="text-align:left;">
-      List subset, binary
-      </td>
-      </tr>
-      </tbody>
-      </table>
 
 Understanding the basic syntax and notation in R is crucial to
 effectively navigate and utilize the language. In this example, we’ll
@@ -843,11 +639,11 @@ s.degree(A)
 ```
 
     ##   Degree
-    ## A      1
+    ## A      3
     ## B      2
-    ## C      2
+    ## C      0
     ## D      1
-    ## E      2
+    ## E      1
 
 ## Lists
 
@@ -880,7 +676,7 @@ str(l)
 
     ## List of 4
     ##  $ factor    : Factor w/ 2 levels "male","female": NA NA
-    ##  $ matrix    : num [1:5, 1:5] 0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ matrix    : num [1:5, 1:5] 0 1 0 0 1 1 0 0 0 0 ...
     ##   ..- attr(*, "dimnames")=List of 2
     ##   .. ..$ : chr [1:5] "A" "B" "C" "D" ...
     ##   .. ..$ : chr [1:5] "A" "B" "C" "D" ...
@@ -925,8 +721,8 @@ A[c('A', 'C'), c('D', 'E')]
 ```
 
     ##   D E
-    ## A 0 1
-    ## C 1 1
+    ## A 1 1
+    ## C 0 0
 
 ``` r
 ## Data Frames ##
@@ -951,11 +747,11 @@ l[c('factor', 'matrix')]
     ## 
     ## $matrix
     ##   A B C D E
-    ## A 0 0 0 0 1
-    ## B 0 0 1 1 0
-    ## C 0 0 0 1 1
+    ## A 0 1 0 1 1
+    ## B 1 0 0 1 0
+    ## C 0 0 0 0 0
     ## D 0 0 1 0 0
-    ## E 0 0 1 1 0
+    ## E 1 0 0 0 0
 
 ``` r
 ### Numeric ####
@@ -973,7 +769,7 @@ A[2:3, 4]
 ```
 
     ## B C 
-    ## 1 1
+    ## 1 0
 
 ``` r
 ## Data Frames ##
@@ -1012,7 +808,7 @@ a[c(TRUE, FALSE)]
 A[upper.tri(A)]
 ```
 
-    ##  [1] 0 0 1 0 1 1 1 0 1 0
+    ##  [1] 1 0 0 1 1 0 1 0 0 0
 
 ``` r
 ## Data Frames ##
@@ -1034,7 +830,7 @@ l$matrix[, 4]
 ```
 
     ## A B C D E 
-    ## 0 1 1 0 1
+    ## 1 1 0 0 0
 
 ``` r
 ### Combinations ###
@@ -1042,8 +838,8 @@ A[2:3, c('C', 'D')]
 ```
 
     ##   C D
-    ## B 1 1
-    ## C 0 1
+    ## B 0 1
+    ## C 0 0
 
 ``` r
 ### Special Operator ####
@@ -1065,7 +861,7 @@ l$matrix[, 4]
 ```
 
     ## A B C D E 
-    ## 0 1 1 0 1
+    ## 1 1 0 0 0
 
 ## Control Flow
 
@@ -1152,7 +948,7 @@ no.ver.edges <- function(am) {
 no.ver.edges(A)
 ```
 
-    ## [1] "Edges: 8"
+    ## [1] "Edges: 7"
 
 ``` r
 no.ver.edges(B)
@@ -1188,11 +984,11 @@ A
 ```
 
     ##   A B C D E
-    ## A 0 0 0 0 1
-    ## B 0 0 1 1 0
-    ## C 0 0 0 1 1
+    ## A 0 1 0 1 1
+    ## B 1 0 0 1 0
+    ## C 0 0 0 0 0
     ## D 0 0 1 0 0
-    ## E 0 0 1 1 0
+    ## E 1 0 0 0 0
 
 ``` r
 is.sym(A)
@@ -1250,11 +1046,11 @@ for (i in 1:nrow(A)) {
 }
 ```
 
-    ## [1] "E"
-    ## [1] "C" "D"
-    ## [1] "D" "E"
+    ## [1] "B" "D" "E"
+    ## [1] "A" "D"
+    ## character(0)
     ## [1] "C"
-    ## [1] "C" "D"
+    ## [1] "A"
 
 ## Apply Family of Functions
 
@@ -1320,15 +1116,16 @@ apply(ma, 2, function(x) {
 ```
 
     ##   [,1] [,2] [,3] [,4] [,5]
-    ## E    1    0    2    0    0
-    ## J    2    0    0    0    0
-    ## G    1    0    0    0    1
-    ## C    1    0    1    1    1
-    ## A    0    3    0    0    0
-    ## B    0    1    0    0    1
-    ## I    0    1    0    2    0
-    ## F    0    0    1    2    0
-    ## H    0    0    1    0    2
+    ## J    1    1    0    0    0
+    ## F    2    1    0    0    0
+    ## G    1    1    0    0    0
+    ## I    1    0    1    0    2
+    ## D    0    1    0    1    0
+    ## A    0    1    1    0    0
+    ## E    0    0    1    1    0
+    ## C    0    0    2    0    2
+    ## B    0    0    0    1    1
+    ## H    0    0    0    2    0
 
 In this example, we create a matrix of random characters and count how
 many times each character appears in each column using the apply
@@ -1361,11 +1158,11 @@ lapply(list(A, B, C, D), s.degree)
 
     ## [[1]]
     ##   Degree
-    ## A      1
+    ## A      3
     ## B      2
-    ## C      2
+    ## C      0
     ## D      1
-    ## E      2
+    ## E      1
     ## 
     ## [[2]]
     ##      Degree
@@ -2401,561 +2198,31 @@ and unweighted centrality measurements.
     w.closeness = cw[, 3]
     )
     
-   kable(out, format = "html")
+   kable(out, format = "markdown")
 ```
 
-<table>
-<thead>
-<tr>
-<th style="text-align:right;">
-vertex
-</th>
-<th style="text-align:right;">
-degree
-</th>
-<th style="text-align:right;">
-w.degree
-</th>
-<th style="text-align:right;">
-strength
-</th>
-<th style="text-align:right;">
-betweenness
-</th>
-<th style="text-align:right;">
-w.betweenness
-</th>
-<th style="text-align:right;">
-closeness
-</th>
-<th style="text-align:right;">
-w.closeness
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-130
-</td>
-<td style="text-align:right;">
-65
-</td>
-<td style="text-align:right;">
-1114
-</td>
-<td style="text-align:right;">
-2.1229201
-</td>
-<td style="text-align:right;">
-5.0
-</td>
-<td style="text-align:right;">
-0.0476190
-</td>
-<td style="text-align:right;">
-0.0027187
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-226
-</td>
-<td style="text-align:right;">
-113
-</td>
-<td style="text-align:right;">
-2570
-</td>
-<td style="text-align:right;">
-2.7839910
-</td>
-<td style="text-align:right;">
-25.0
-</td>
-<td style="text-align:right;">
-0.0454545
-</td>
-<td style="text-align:right;">
-0.0033652
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-232
-</td>
-<td style="text-align:right;">
-116
-</td>
-<td style="text-align:right;">
-2684
-</td>
-<td style="text-align:right;">
-3.3126748
-</td>
-<td style="text-align:right;">
-25.0
-</td>
-<td style="text-align:right;">
-0.0526316
-</td>
-<td style="text-align:right;">
-0.0036337
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-138
-</td>
-<td style="text-align:right;">
-69
-</td>
-<td style="text-align:right;">
-1410
-</td>
-<td style="text-align:right;">
-0.6806319
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-0.0370370
-</td>
-<td style="text-align:right;">
-0.0029227
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-164
-</td>
-<td style="text-align:right;">
-82
-</td>
-<td style="text-align:right;">
-2020
-</td>
-<td style="text-align:right;">
-1.4591533
-</td>
-<td style="text-align:right;">
-8.5
-</td>
-<td style="text-align:right;">
-0.0434783
-</td>
-<td style="text-align:right;">
-0.0030773
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-174
-</td>
-<td style="text-align:right;">
-87
-</td>
-<td style="text-align:right;">
-1270
-</td>
-<td style="text-align:right;">
-2.8393232
-</td>
-<td style="text-align:right;">
-6.0
-</td>
-<td style="text-align:right;">
-0.0500000
-</td>
-<td style="text-align:right;">
-0.0029271
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-7
-</td>
-<td style="text-align:right;">
-118
-</td>
-<td style="text-align:right;">
-59
-</td>
-<td style="text-align:right;">
-598
-</td>
-<td style="text-align:right;">
-2.6185509
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-0.0476190
-</td>
-<td style="text-align:right;">
-0.0023282
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-8
-</td>
-<td style="text-align:right;">
-204
-</td>
-<td style="text-align:right;">
-102
-</td>
-<td style="text-align:right;">
-2412
-</td>
-<td style="text-align:right;">
-1.6479201
-</td>
-<td style="text-align:right;">
-9.0
-</td>
-<td style="text-align:right;">
-0.0454545
-</td>
-<td style="text-align:right;">
-0.0033416
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-9
-</td>
-<td style="text-align:right;">
-174
-</td>
-<td style="text-align:right;">
-87
-</td>
-<td style="text-align:right;">
-1706
-</td>
-<td style="text-align:right;">
-2.3452034
-</td>
-<td style="text-align:right;">
-6.0
-</td>
-<td style="text-align:right;">
-0.0476190
-</td>
-<td style="text-align:right;">
-0.0030863
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-124
-</td>
-<td style="text-align:right;">
-62
-</td>
-<td style="text-align:right;">
-912
-</td>
-<td style="text-align:right;">
-0.9251374
-</td>
-<td style="text-align:right;">
-5.0
-</td>
-<td style="text-align:right;">
-0.0416667
-</td>
-<td style="text-align:right;">
-0.0025384
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-146
-</td>
-<td style="text-align:right;">
-73
-</td>
-<td style="text-align:right;">
-1230
-</td>
-<td style="text-align:right;">
-1.6821082
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-0.0434783
-</td>
-<td style="text-align:right;">
-0.0028137
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-126
-</td>
-<td style="text-align:right;">
-63
-</td>
-<td style="text-align:right;">
-834
-</td>
-<td style="text-align:right;">
-0.8365593
-</td>
-<td style="text-align:right;">
-2.0
-</td>
-<td style="text-align:right;">
-0.0400000
-</td>
-<td style="text-align:right;">
-0.0027492
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-13
-</td>
-<td style="text-align:right;">
-202
-</td>
-<td style="text-align:right;">
-101
-</td>
-<td style="text-align:right;">
-1874
-</td>
-<td style="text-align:right;">
-2.5167291
-</td>
-<td style="text-align:right;">
-15.5
-</td>
-<td style="text-align:right;">
-0.0476190
-</td>
-<td style="text-align:right;">
-0.0030283
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-14
-</td>
-<td style="text-align:right;">
-96
-</td>
-<td style="text-align:right;">
-48
-</td>
-<td style="text-align:right;">
-536
-</td>
-<td style="text-align:right;">
-0.9730311
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-0.0400000
-</td>
-<td style="text-align:right;">
-0.0023921
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-15
-</td>
-<td style="text-align:right;">
-208
-</td>
-<td style="text-align:right;">
-104
-</td>
-<td style="text-align:right;">
-2444
-</td>
-<td style="text-align:right;">
-1.9907620
-</td>
-<td style="text-align:right;">
-6.0
-</td>
-<td style="text-align:right;">
-0.0434783
-</td>
-<td style="text-align:right;">
-0.0033759
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-16
-</td>
-<td style="text-align:right;">
-130
-</td>
-<td style="text-align:right;">
-65
-</td>
-<td style="text-align:right;">
-866
-</td>
-<td style="text-align:right;">
-1.3696540
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:right;">
-0.0416667
-</td>
-<td style="text-align:right;">
-0.0025051
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-17
-</td>
-<td style="text-align:right;">
-152
-</td>
-<td style="text-align:right;">
-76
-</td>
-<td style="text-align:right;">
-1172
-</td>
-<td style="text-align:right;">
-1.4591533
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:right;">
-0.0434783
-</td>
-<td style="text-align:right;">
-0.0031414
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-18
-</td>
-<td style="text-align:right;">
-204
-</td>
-<td style="text-align:right;">
-102
-</td>
-<td style="text-align:right;">
-2296
-</td>
-<td style="text-align:right;">
-1.4619672
-</td>
-<td style="text-align:right;">
-12.0
-</td>
-<td style="text-align:right;">
-0.0416667
-</td>
-<td style="text-align:right;">
-0.0033830
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-19
-</td>
-<td style="text-align:right;">
-244
-</td>
-<td style="text-align:right;">
-122
-</td>
-<td style="text-align:right;">
-2592
-</td>
-<td style="text-align:right;">
-3.1065851
-</td>
-<td style="text-align:right;">
-38.0
-</td>
-<td style="text-align:right;">
-0.0500000
-</td>
-<td style="text-align:right;">
-0.0037400
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-92
-</td>
-<td style="text-align:right;">
-46
-</td>
-<td style="text-align:right;">
-928
-</td>
-<td style="text-align:right;">
-0.8679446
-</td>
-<td style="text-align:right;">
-1.0
-</td>
-<td style="text-align:right;">
-0.0384615
-</td>
-<td style="text-align:right;">
-0.0024796
-</td>
-</tr>
-</tbody>
-</table>
+| vertex | degree | w.degree | strength | betweenness | w.betweenness | closeness | w.closeness |
+|-------:|-------:|---------:|---------:|------------:|--------------:|----------:|------------:|
+|      1 |    136 |       68 |     1360 |    2.104459 |             7 | 0.0400000 |   0.0027701 |
+|      2 |    206 |      103 |     3390 |    2.850419 |            29 | 0.0400000 |   0.0033045 |
+|      3 |    142 |       71 |     1310 |    3.630675 |             6 | 0.0434783 |   0.0024859 |
+|      4 |    132 |       66 |     1664 |    1.697183 |             7 | 0.0384615 |   0.0029117 |
+|      5 |    144 |       72 |     1240 |    2.774312 |             9 | 0.0434783 |   0.0027380 |
+|      6 |     84 |       42 |      496 |    2.129892 |             0 | 0.0384615 |   0.0022731 |
+|      7 |    104 |       52 |      476 |    4.233103 |             1 | 0.0454545 |   0.0020333 |
+|      8 |    148 |       74 |     1496 |    1.338850 |            13 | 0.0370370 |   0.0027492 |
+|      9 |    130 |       65 |      762 |    2.880625 |             1 | 0.0434783 |   0.0023273 |
+|     10 |    180 |       90 |     3248 |    3.568456 |            18 | 0.0434783 |   0.0031294 |
+|     11 |    194 |       97 |     2246 |    3.685820 |            21 | 0.0454545 |   0.0032645 |
+|     12 |    116 |       58 |     1212 |    2.174228 |             3 | 0.0384615 |   0.0022673 |
+|     13 |     86 |       43 |      590 |    1.078691 |             0 | 0.0370370 |   0.0024054 |
+|     14 |    144 |       72 |      988 |    4.050985 |             8 | 0.0434783 |   0.0028601 |
+|     15 |     88 |       44 |      404 |    1.909510 |             0 | 0.0384615 |   0.0020143 |
+|     16 |    126 |       63 |      822 |    4.247017 |             1 | 0.0454545 |   0.0025134 |
+|     17 |    162 |       81 |     1314 |    1.615571 |            18 | 0.0384615 |   0.0033866 |
+|     18 |    178 |       89 |     2278 |    2.254387 |            16 | 0.0400000 |   0.0032046 |
+|     19 |    104 |       52 |      644 |    1.613647 |             5 | 0.0384615 |   0.0025963 |
+|     20 |    196 |       98 |     2500 |    4.162168 |            32 | 0.0454545 |   0.0032223 |
 
 ### Structural Holes
 
@@ -2984,222 +2251,18 @@ plot(g)
 
 ``` r
 A <- as.matrix(get.adjacency(g))
-kable(A, format = "html")
+kable(A, format = "markdown")
 ```
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:right;">
-A
-</th>
-<th style="text-align:right;">
-B
-</th>
-<th style="text-align:right;">
-C
-</th>
-<th style="text-align:right;">
-D
-</th>
-<th style="text-align:right;">
-E
-</th>
-<th style="text-align:right;">
-F
-</th>
-<th style="text-align:right;">
-G
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-A
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-B
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-C
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-D
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-E
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-F
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-G
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-</tbody>
-</table>
+|     |   A |   B |   C |   D |   E |   F |   G |
+|:----|----:|----:|----:|----:|----:|----:|----:|
+| A   |   0 |   1 |   0 |   0 |   1 |   1 |   1 |
+| B   |   1 |   0 |   0 |   1 |   0 |   0 |   1 |
+| C   |   0 |   0 |   0 |   0 |   0 |   0 |   1 |
+| D   |   0 |   1 |   0 |   0 |   0 |   0 |   1 |
+| E   |   1 |   0 |   0 |   0 |   0 |   0 |   1 |
+| F   |   1 |   0 |   0 |   0 |   0 |   0 |   1 |
+| G   |   1 |   1 |   1 |   1 |   1 |   1 |   0 |
 
 To calculate the constraints to bridge structural holes, the first step
 is to calculate, $i$, individual proportion of resources allocated to
@@ -3252,135 +2315,16 @@ cols <- data.frame(
 
 colnames(cols) <- gsub("\\.G\\..*", "", colnames(cols))
 
-kable(cols,  format = "html")
+kable(cols,  format = "markdown")
 ```
 
-<table>
-<thead>
-<tr>
-<th style="text-align:right;">
-degree
-</th>
-<th style="text-align:right;">
-closeness
-</th>
-<th style="text-align:right;">
-constraint
-</th>
-<th style="text-align:right;">
-transitivity
-</th>
-<th style="text-align:right;">
-eigen_centrality
-</th>
-<th style="text-align:right;">
-betweenness
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.765625
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.765625
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.765625
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.765625
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-0.25
-</td>
-<td style="text-align:right;">
-0.765625
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0
-</td>
-</tr>
-</tbody>
-</table>
+| degree | closeness | constraint | transitivity | eigen_centrality | betweenness |
+|-------:|----------:|-----------:|-------------:|-----------------:|------------:|
+|      4 |      0.25 |   0.765625 |            1 |                1 |           0 |
+|      4 |      0.25 |   0.765625 |            1 |                1 |           0 |
+|      4 |      0.25 |   0.765625 |            1 |                1 |           0 |
+|      4 |      0.25 |   0.765625 |            1 |                1 |           0 |
+|      4 |      0.25 |   0.765625 |            1 |                1 |           0 |
 
 To see more clearly the issue of redundancy of network measurements, I
 have created this snipped of code with a simulation. The code calculates
@@ -3501,333 +2445,21 @@ range of sample empirical data for your analyses.
     transitivity = transitivity(g, "localundirected"),
     eigen_centrality= eigen_centrality(g, scale = F)$vector)
  
-kable(na[1:10,],  format = "html")
+kable(na[1:10,],  format = "markdown")
 ```
 
-<table>
-<thead>
-<tr>
-<th style="text-align:left;">
-</th>
-<th style="text-align:left;">
-id
-</th>
-<th style="text-align:right;">
-closeness
-</th>
-<th style="text-align:right;">
-degree
-</th>
-<th style="text-align:right;">
-strength
-</th>
-<th style="text-align:right;">
-betweenness
-</th>
-<th style="text-align:right;">
-struc_hole
-</th>
-<th style="text-align:right;">
-transitivity
-</th>
-<th style="text-align:right;">
-eigen_centrality
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:left;">
-2
-</td>
-<td style="text-align:right;">
-0.0004627
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.8650000
-</td>
-<td style="text-align:right;">
-1.0000000
-</td>
-<td style="text-align:right;">
-0.0148383
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:left;">
-3
-</td>
-<td style="text-align:right;">
-0.0004627
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.8650000
-</td>
-<td style="text-align:right;">
-1.0000000
-</td>
-<td style="text-align:right;">
-0.0148383
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:left;">
-4
-</td>
-<td style="text-align:right;">
-0.0005643
-</td>
-<td style="text-align:right;">
-34
-</td>
-<td style="text-align:right;">
-34
-</td>
-<td style="text-align:right;">
-10834.473
-</td>
-<td style="text-align:right;">
-0.0955073
-</td>
-<td style="text-align:right;">
-0.1336898
-</td>
-<td style="text-align:right;">
-0.4142993
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-5
-</td>
-<td style="text-align:left;">
-5
-</td>
-<td style="text-align:right;">
-0.0006075
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-27
-</td>
-<td style="text-align:right;">
-17858.003
-</td>
-<td style="text-align:right;">
-0.1071098
-</td>
-<td style="text-align:right;">
-0.1823362
-</td>
-<td style="text-align:right;">
-0.3562072
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-16
-</td>
-<td style="text-align:left;">
-16
-</td>
-<td style="text-align:right;">
-0.0005211
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-21
-</td>
-<td style="text-align:right;">
-1131.347
-</td>
-<td style="text-align:right;">
-0.1690397
-</td>
-<td style="text-align:right;">
-0.2761905
-</td>
-<td style="text-align:right;">
-0.3464503
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-44
-</td>
-<td style="text-align:left;">
-44
-</td>
-<td style="text-align:right;">
-0.0005882
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-12460.579
-</td>
-<td style="text-align:right;">
-0.2941086
-</td>
-<td style="text-align:right;">
-0.5000000
-</td>
-<td style="text-align:right;">
-0.0885522
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-113
-</td>
-<td style="text-align:left;">
-113
-</td>
-<td style="text-align:right;">
-0.0005033
-</td>
-<td style="text-align:right;">
-15
-</td>
-<td style="text-align:right;">
-15
-</td>
-<td style="text-align:right;">
-4601.692
-</td>
-<td style="text-align:right;">
-0.1901735
-</td>
-<td style="text-align:right;">
-0.2571429
-</td>
-<td style="text-align:right;">
-0.0222461
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-131
-</td>
-<td style="text-align:left;">
-131
-</td>
-<td style="text-align:right;">
-0.0004760
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-3238.339
-</td>
-<td style="text-align:right;">
-0.2118647
-</td>
-<td style="text-align:right;">
-0.3333333
-</td>
-<td style="text-align:right;">
-0.0213000
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-250
-</td>
-<td style="text-align:left;">
-250
-</td>
-<td style="text-align:right;">
-0.0005089
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-6
-</td>
-<td style="text-align:right;">
-13.200
-</td>
-<td style="text-align:right;">
-0.3374061
-</td>
-<td style="text-align:right;">
-0.8666667
-</td>
-<td style="text-align:right;">
-0.1470503
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-259
-</td>
-<td style="text-align:left;">
-259
-</td>
-<td style="text-align:right;">
-0.0004735
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-0.000
-</td>
-<td style="text-align:right;">
-0.4537654
-</td>
-<td style="text-align:right;">
-1.0000000
-</td>
-<td style="text-align:right;">
-0.0176052
-</td>
-</tr>
-</tbody>
-</table>
+|     | id  | closeness | degree | strength | betweenness | struc_hole | transitivity | eigen_centrality |
+|:----|:----|----------:|-------:|---------:|------------:|-----------:|-------------:|-----------------:|
+| 2   | 2   | 0.0004627 |      2 |        2 |       0.000 |  0.8650000 |    1.0000000 |        0.0148383 |
+| 3   | 3   | 0.0004627 |      2 |        2 |       0.000 |  0.8650000 |    1.0000000 |        0.0148383 |
+| 4   | 4   | 0.0005643 |     34 |       34 |   10834.473 |  0.0955073 |    0.1336898 |        0.4142993 |
+| 5   | 5   | 0.0006075 |     27 |       27 |   17858.003 |  0.1071098 |    0.1823362 |        0.3562072 |
+| 16  | 16  | 0.0005211 |     21 |       21 |    1131.347 |  0.1690397 |    0.2761905 |        0.3464503 |
+| 44  | 44  | 0.0005882 |      4 |        4 |   12460.579 |  0.2941086 |    0.5000000 |        0.0885522 |
+| 113 | 113 | 0.0005033 |     15 |       15 |    4601.692 |  0.1901735 |    0.2571429 |        0.0222461 |
+| 131 | 131 | 0.0004760 |     12 |       12 |    3238.339 |  0.2118647 |    0.3333333 |        0.0213000 |
+| 250 | 250 | 0.0005089 |      6 |        6 |      13.200 |  0.3374061 |    0.8666667 |        0.1470503 |
+| 259 | 259 | 0.0004735 |      3 |        3 |       0.000 |  0.4537654 |    1.0000000 |        0.0176052 |
 
 ## Community Detection
 
@@ -3896,11 +2528,4 @@ plot(g,layout=l,vertex.size=5, main= comm)
 invisible(lapply(comms, plot.comm))
 ```
 
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-1.png?raw=true)<!---->
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-2.png?raw=true)<!---->
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-3.png?raw=true)<!---->
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-4.png?raw=true)<!---->
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-5.png?raw=true)<!---->
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-6.png?raw=true)<!---->
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-7.png?raw=true)<!---->
-![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-8.png?raw=true)<!---->
+![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-1.png?raw=true)<!-- -->![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-2.png?raw=true)<!-- -->![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-3.png?raw=true)<!-- -->![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-4.png?raw=true)<!-- -->![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-5.png?raw=true)<!-- -->![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-6.png?raw=true)<!-- -->![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-7.png?raw=true)<!-- -->![](https://github.com/Wario84/blog/raw/main/assets/imgs/2023-09-14-intro_net_anlysis_R/unnamed-chunk-56-8.png?raw=true)<!-- -->
