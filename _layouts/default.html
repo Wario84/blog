@@ -3,24 +3,35 @@
 
   {%- include head.html -%}
 
-  <body>
+<body>
 
-  <!-- Source: https://stackoverflow.com/questions/50998466/how-to-use-latex-in-new-jekyll-gem-based-theme-minima/51001619#51001619 -->
-
-  <!-- OLD <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script> -->
-  <!-- NEW: https://docs.mathjax.org/en/v2.7-latest/configuration.html#loading-mathjax-from-a-cdn -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+    <!-- Source: https://stackoverflow.com/questions/50998466/how-to-use-latex-in-new-jekyll-gem-based-theme-minima/51001619#51001619 -->
+    <!-- OLD <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script> -->
+    <!-- NEW: https://docs.mathjax.org/en/v2.7-latest/configuration.html#loading-mathjax-from-a-cdn -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     {%- include header.html -%}
 
     <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
+        <div class="wrapper">
+            {{ content }}
+        </div>
     </main>
 
     {%- include footer.html -%}
 
-  </body>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDKDEYVJXB"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KDKDEYVJXB');
+    </script>
+
+</body>
 
 </html>
