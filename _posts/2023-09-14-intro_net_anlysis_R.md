@@ -1794,7 +1794,7 @@ attributes of the `plot` function in the following way:
 - `layout`: Specifies the layout algorithm; we used the
   Fruchterman-Reingold layout here.
 
-### Curtomizing network attributes:
+### Customizing network attributes:
 
 ``` r
 # Visualizing multiple networks in a grid
