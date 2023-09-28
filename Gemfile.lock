@@ -283,7 +283,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages (~> 223)
   jekyll-commonmark-ghpages (>= 0.1.6)
-  jekyll-feed (~> 0.9)
+  jekyll-feed (~> 0.15)
   jekyll-mermaid
   minima (~> 2.5.1)
   tzinfo (~> 1.2)
