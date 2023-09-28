@@ -16,7 +16,7 @@ gem "github-pages", "~> 223", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   #gem "jekyll-feed", "~> 0.9"
-  gem "jekyll-feed", "~> 0.15"
+  gem "jekyll-feed", "~> 0.15.1"
   gem "jekyll-mermaid"
   gem "jekyll-commonmark-ghpages", ">= 0.1.6"
   #gem "jekyll-commonmark-ghpages", ">= 0.2.0"
