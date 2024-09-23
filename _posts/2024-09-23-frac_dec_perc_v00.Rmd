@@ -1,0 +1,655 @@
+---
+title: "Fractions, Decimals, Percentages."
+author: "Mario H. Gonzalez Sauri"
+date: "2024-09-23"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(htmltools)
+```
+
+\usepackage{amsmath}
+\usepackage{longdiv}
+
+
+# Introduction: Fractions, Decimals, Percentages.
+
+## Objectives
+
+-   To learn.
+-   To have fun.
+-   To find real-life applications.
+
+Deal we the why and the how.
+
+
+
+```{r, echo=FALSE, out.width='100%', eval=FALSE}
+
+ # \'cake.png\',
+ #    \'burger.png\',
+ #    \'icecream.png\',
+ #    \'donut.png\',
+ #    \'fries.png\',
+ #    \'soda.png\'
+ #    
+
+# HTML content for the animation 
+html <- HTML('<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split Pizza Animation</title>
+  <style>
+    .food-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .food-item {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      margin: 0 auto;
+      transition: transform 2s ease-in-out;
+    }
+    .food-split {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      clip-path: circle(50% at 50% 50%);
+    }
+    .percent-label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="food-container">
+  <div id="food-item" class="food-item">
+    <img id="food-image" src="pizza.png" alt="Food Image" style="width:100%; height: 100%;">
+    <div id="slice1" class="food-split">
+      <img src="pizza.png" style="width: 100%; height: 100%; clip-path: polygon(50% 50%, 100% 0, 100% 100%);">
+      <div class="percent-label">50%</div>
+    </div>
+    <div id="slice2" class="food-split">
+      <img src="pizza.png" style="width: 100%; height: 100%; clip-path: polygon(50% 50%, 100% 0, 50% 100%);">
+      <div class="percent-label">25%</div>
+    </div>
+    <div id="slice3" class="food-split">
+      <img src="pizza.png" style="width: 100%; height: 100%; clip-path: polygon(50% 50%, 100% 0, 75% 100%);">
+      <div class="percent-label">33%</div>
+    </div>
+    <div id="slice4" class="food-split">
+      <img src="pizza.png" style="width: 100%; height: 100%; clip-path: polygon(50% 50%, 100% 0, 25% 100%);">
+      <div class="percent-label">25%</div>
+    </div>
+    <div id="slice5" class="food-split">
+      <img src="pizza.png" style="width: 100%; height: 100%; clip-path: polygon(50% 50%, 100% 0, 20% 100%);">
+      <div class="percent-label">20%</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const foodItem = document.getElementById("food-item"),
+    foodImage = document.getElementById("food-image");
+
+  const foodImages = ["pizza.png", "tomato.png"];
+
+  let currentFoodIndex = 0;
+
+  // Function to randomize the circular pizza slice splits
+  function splitFood() {
+    // Randomize between 2 and 8 parts
+    const split = Math.floor(Math.random() * 7) + 2;
+    const sliceAngle = 360 / split;
+
+    // Hide all previous slices
+    const slices = document.getElementsByClassName("food-split");
+    for (let i = 0; i < slices.length; i++) {
+      slices[i].style.display = "none";
+    }
+
+    // Show the new slices and set clip paths for circular pizza slices
+    for (let i = 0; i < split; i++) {
+      const slice = document.getElementById("slice" + (i + 1));
+      if (slice) {
+        const angleStart = i * sliceAngle,
+          angleEnd = (i + 1) * sliceAngle;
+
+        // Show slice
+        slice.style.display = "block";
+        slice.querySelector(".percent-label").innerText = `${(100 / split).toFixed(0)}%`;
+
+        // Set clip path for each slice (circular wedge)
+        slice.querySelector("img").style.clipPath = `polygon(50% 50%, ${50 + 50 * Math.cos(angleStart * Math.PI / 180)}% ${50 + 50 * Math.sin(angleStart * Math.PI / 180)}%, ${50 + 50 * Math.cos(angleEnd * Math.PI / 180)}% ${50 + 50 * Math.sin(angleEnd * Math.PI / 180)}%)`;
+      }
+    }
+
+    // Rotate the entire image randomly to animate
+    foodItem.style.transform = `rotate(${Math.random() * 360}deg)`;
+  }
+
+  function changeFood() {
+    currentFoodIndex = (currentFoodIndex + 1) % foodImages.length;
+    foodImage.src = foodImages[currentFoodIndex];
+
+    // Call splitFood after changing the image
+    splitFood();
+  }
+
+  setInterval(changeFood, 5000);
+
+  window.onload = function() {
+    splitFood();
+  };
+</script>
+
+</body>
+</html>')
+
+# Save the HTML content to a file
+htmltools::save_html(html, "animation.html")
+
+# Include the saved HTML file in the RMarkdown slide
+knitr::include_url("animation.html")
+
+
+```
+
+
+
+# 1. Fractions.
+
+
+## Natural Numbers
+
+Lets recall:
+
+- **Natural Numbers**: Whole numbers starting from $1$ (e.g., $1$, $2$, $3$, $4$).
+
+We use them in every day life to **count** all sort of things...
+
+-   Can you name examples?
+
+
+
+## When Do We Use Fractions? - Sharing
+
+- **Sharing**: When we need to divide something equally among people.
+
+- Example: Splitting a pizza among friends:
+
+<div style="text-align: center;">
+  <img src="pizza.png" alt="Pizza" style="width: 350px; height: 350px; object-fit: cover;">
+</div>
+  
+  
+  
+## When Do We Use Fractions?  - Spliting 
+
+- **Splitting**: When we need to break something into smaller parts.
+
+- Example: Cutting an apple into *quarters*:
+
+<div style="text-align: center;">
+  <img src="apple.jpeg" alt="Pizza" style="width: 350px; height: 350px; object-fit: cover;">
+</div>
+
+
+
+  
+  
+## When Do We Use Fractions?  - Buy/Sell   
+
+- **Buying and Selling**: When we need to measure quantities that are not whole numbers.
+
+- Example: Buying **half** kilogram of gummy bear candy.
+
+<div style="text-align: center;">
+  <img src="bear2.png" alt="Pizza" style="width: 350px; height: 350px; object-fit: cover;">
+</div>
+
+  
+
+## Fractions: 1.1 Formal Definition
+
+- **Fractions**: A way to represent parts of a whole.
+- Separated by a diagonal line (more common):
+  -   Thirds $1/3$.
+  -   Halves $1/2$.
+  -   Quarters $1/4$.
+  
+  
+- Separated by an horizontal line  (more formal).
+  $$\frac{1}{2}, \frac{2}{3}, \frac{1}{8}, \frac{3}{5}$$
+  
+## Fractions: 1.2 Formal Definition
+
+-   *Numerator*: The top number represents the number of parts you have or take.
+
+
+-   *Denominator*: The bottom number represents the total number of equal parts the whole is divided into.
+
+
+-   *Example 1*: You buy a medium pizza ($8$ slices), and you take $3$ slices.
+
+How will you represent your share using fraction notation?
+
+
+## Fractions Examples
+
+$$\frac{3}{8}$$
+
+-   *Example 2*: You have a chocolate bar with 12 pieces and you would like to *share it evenly* among 3 friends.
+
+
+## Fractions Examples
+
+-   *Denominator*: The bottom number represents the total number of equal parts the whole is divided into.
+$12$
+
+-   *Numerator*: The top number represents the number of parts you have or take.
+
+We have $3$ friends, and we want the $12$ split evenly, so...
+
+$$12 \div 3= 3\sqrt{12}=4$$
+
+So in fraction notation:
+
+
+$$\frac{4}{12}$$
+Is this correct? Is it well expressed (fraction notation)?
+
+
+
+## Fractions Examples
+
+Picture your chocolate bar...
+
+```{r, results='asis', warning=FALSE}
+
+# Set up plot dimensions
+plot(1, type="n", xlim=c(0, 4), ylim=c(0, 3), xlab="", ylab="", xaxt='n', yaxt='n', bty='n')
+
+# Draw horizontal lines
+for(i in 0:3) {
+  lines(c(0, 4), c(i, i))
+}
+
+# Draw vertical lines
+for(i in 0:4) {
+  lines(c(i, i), c(0, 3))
+}
+
+
+```
+
+## Fractions Examples
+
+So... the correct answer is the simplified fraction:
+
+$$\frac{4}{12}=\frac{1}{3}$$
+
+
+
+## Fractions Activity (Game)
+
+Open the QR:
+
+<div style="text-align: center;">
+  <img src="fractions_game.svg" alt="Pizza" style="width: 350px; height: 350px; object-fit: cover;">
+</div>
+
+
+## Fractions Activity (Game)
+
+
+[Fractions Activity (Game)](https://phet.colorado.edu/sims/html/build-a-fraction/latest/build-a-fraction_en.html)
+
+
+
+# 2. Decimals.
+
+
+
+## Decimal Numbers
+
+Lets recall:
+
+- **Decimal Numbers**: Numbers that use a dot (called a decimal point) to show parts of a whole.
+
+(e.g., $1.2$, $2.3$, $3.6$, $4.9$).
+
+The number to the right of the a decimal point is less that a unit:
+
+-   $.1$ is less that $1$
+
+-   $.9$ is less than $2$
+
+-   $2.00...$ is the same as $2$ (trailing zeros.)
+
+We use them in every day life to **measure** all sort of things...
+
+
+## Counting vs. Measuring
+
+Typically:
+
+
+-   *Counting* to find out whole items there are.
+
+
+
+-   *Measuring* involves determining the size, amount, or degree of something using a standard unit (like meters, centimeters, inches, etc.)
+
+
+-   We use *decimal* numbers to represent things that we measure.
+
+
+## When Do We Use Decimals? length
+
+-   How tall are you? 
+ $$1.73 \, \text{m}$$
+
+-   How far is Mérida from Cancún?
+
+ $$309.2 \, \text{km}$$
+
+<div style="text-align: center;">
+  <img src="lenght.jpeg" alt="Lenght" style="width: 300px; height: 300px; object-fit: cover;">
+</div>
+
+
+## When Do We Use Decimals? Temperature
+
+
+-   The freezing point of human blood is actually around:
+
+$$-1.66 \, \text{°C}$$
+-   The temperature in the summer of Mérida is around:
+$$37.5 \, \text{°C}$$
+
+<div style="text-align: center;">
+  <img src="temperature.jpeg" alt="temperature" style="width: 280px; height: 220px; object-fit: cover;">
+</div>
+
+
+
+## When Do We Use Decimals? Money
+
+
+- What is the price of Minecraft: Java & Bedrock Edition Microsoft PC?
+  $$\$569.99\, \text{MXN}$$
+
+- How much does a Kinder Sorpresa?
+  $$\$18.50\, \text{MXN}$$
+
+<div style="text-align: center;">
+  <img src="minecraft.png" alt="minecraft" style="width: 280px; height: 220px; object-fit: cover;">
+</div>
+
+
+## Decimals: 2.1 Formal Definition
+
+-   Decimals is another way to write **rational numbers** used for things that we rather measure.
+
+- **Division**: To convert a fraction to a decimal, divide the numerator by the denominator.
+
+
+
+- Example 1: Convert $\frac{1}{2}$ to a decimal.
+
+$$\frac{1}{2} = 1 \div 2 = 0.5$$
+
+## Decimals: 2.1 Formal Definition
+
+<div style="text-align: center;">
+  <img src="division.png" alt="division" style="width: 600px; height: 350px; object-fit: cover;">
+</div>
+
+
+
+
+
+
+
+## Decimals Examples
+
+How do we do it?
+
+
+1.    Add a zero to the right of the dividend (numerator).
+
+$$2\sqrt{1} \rightarrow 2\sqrt{10}$$
+
+
+
+## Decimals Examples
+
+
+2.    Divide: Find the largest integer (quotient) that, when multiplied by the divisor (denominator), is less than or equal to the current dividend.
+
+$$2\sqrt{10}$$
+- What about $2 \times 3 = 6$?
+
+- What about $2 \times 4 = 8$?
+
+- What about $2 \times 5 = 10$?
+
+- What about $2 \times 6 = 12$?
+
+2.1   Add a decimal point to the right of quotient:
+$$.05$$
+
+## Decimals Examples
+
+3.    Multiply the divisor by this integer and write the result below the current dividend.
+$$2 \times 5 = 10$$
+
+4.    Subtract: Subtract this result from the current dividend to find the remainder.
+$$10-10=0$$
+
+**If the remainder is $0$ STOP**
+
+
+## Decimals Examples
+
+**If the remainder is not $0$ Carry on**
+
+
+5.    Bring Down: Bring down the next digit (or add a zero if there are no more digits) to the right of the remainder.
+6.    Iterate: Repeat steps 2-5 until the remainder is zero or you have enough decimal places.
+
+## Decimals Examples
+
+-   Context: You want to bake a cupcake, according to the recipe, you need $3/8 \, \text{kg}$ of flour for 12 pzs.
+-   You buy $1 \, \text{kg}$, and you need a scale to measure the flour.
+
+How much flour is  $3/8 \, \text{kg}$ (three-eighths) in grams (three decimal units of a kg)?
+
+
+<div style="text-align: center;">
+  <img src="cupcake.jpeg" alt="cupcaken" style="width: 300px; height: 300px; object-fit: cover;">
+</div>
+
+
+
+
+## Decimals Examples
+
+<div style="text-align: center;">
+  <img src="3_8_division.png" alt="3_8_division" style="width: 600px; height: 600px; object-fit: cover;">
+</div>
+
+
+
+## Decimals Examples
+
+-   Context: You are going on a trip, and you want to leave enough water for your dogs.
+-   Looking at the container, you see that approximately $2/3 \, \text{lts}$ are gone...
+-   You are going for 7 days and you need at least 1 lt of water per day.
+-   If the container is of 20 lts, do you have enough water?
+
+<div style="text-align: center;">
+  <img src="dog_dispensador_.jpg" alt="dispensador" style="width: 600px; height: 250px; object-fit: cover;">
+</div>
+
+
+## Decimals Examples
+<div style="text-align: center;">
+  <img src="dog_division_.jpg" alt="dispensador_div" style="width: 600px; height: 600px; object-fit: cover;">
+</div>
+
+
+## Decimals: 2.2 Mixed Number
+
+-   A mixed number is a combination of a whole number and a fraction.
+-   It’s like saying you have $x$'s number of whole units and certain remainder...
+
+
+-   The quotient $6$
+-   The divisor $3$
+-   The remainder $2$
+
+$$6 \frac{2}{3}$$
+
+
+# 3. Percentages.
+
+
+
+## Percentages.
+
+Lets recall:
+
+- **Definition:** A percentage is a way of expressing a number as a fraction of 100 (base).
+
+- **Symbol:** %
+
+- **Example:** 10% means $10$ out of $100$.
+
+- $100 \%$ represents the whole.
+
+## When Do We Use Percetages? Discounts
+
+-   Picture your favorite video game has 20% off.
+-   If the price is 600 MXN.
+
+How much is the discount, and how much will you pay?
+
+
+## When Do We Use Percetages? Discounts
+
+
+-   To calculate the discount:
+
+1) Estimate the decimal:
+
+$$20/100=.2$$
+
+2) Estimate the discount
+
+$$.2*600=120.0$$
+3) How much will you pay?
+$$600 - 120 = 520$$
+
+## Percentages Examples
+
+-   Picture, you want to save money for trip at the end of the year.
+-   You are serious and you are committed to save 15 % of your weekly allowance.
+
+-   If your weekly allowance (pocket money) is 1000 MXN, and you started saving since the begging of the year..
+
+How much will you have at the end of the year?
+
+
+## Percentages Examples
+
+-   To calculate the weekly savings:
+
+1) Estimate the decimal:
+
+$$15/100=.15$$
+
+2) Estimate the weekly savings
+
+$$.15 \times 1000=150.00$$
+
+3) How many weeks in a year?
+
+$$365/7=56$$ (approx)
+
+
+
+## Percentages Examples
+
+
+4) What are your savings at the end of the year?
+
+$$150*56=8400$$
+
+## Percentages Activity (Game)
+
+Open the QR:
+
+<div style="text-align: center;">
+  <img src="percentages_game.svg" alt="percentages_game" style="width: 350px; height: 350px; object-fit: cover;">
+</div>
+
+## Percentages Activity (Game)
+
+
+[Percentages Activity (Game)](https://www.mathplayground.com/bingo-find-a-percent-of-a-number.html)
+
+## Wrap Up!
+
+-   Fractions to represent parts of a whole (proportions).
+-   Decimals to measure units (time, temperature, length)
+-   Percentages to represent rational numbers in an friendly way (base of 100%).
+
+
+
+## Questions?
+
+- Feel free to ask any questions you have about fractions.
+- Let's make sure we all understand before moving on.
+
+
+
+## Gaby knows fractions very well.
+
+
+[Dj Gaby](https://www.youtube.com/shorts/EnaSwtjN6uk)
+
+
+
+## How does Gaby manages to mix that?
+
+She knows that she always needs to fit an equal number of beats in a bar.
+
+For instance, the most common signature is $1/4$, meaning 4 beats in one bar.
+
+
+## Signature & Beats
+
+
+[Signature, Beats](https://www.youtube.com/shorts/XMfy63r4igI)
+
+
+## The END
+
+Thank you!
